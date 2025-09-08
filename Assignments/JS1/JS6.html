@@ -1,0 +1,23 @@
+<body>
+    <div>
+        <div id="baxa" style="width: 100px;height:100px;background-color: red;">
+
+        </div> 
+    </div>
+    <script>
+        let pos;
+        let px=10;
+        let pt=0;
+            let box=document.getElementById("baxa");
+            box.style.position='absolute';
+            setInterval(()=>{
+                
+                box.style.left=px;
+                box.style.top=pt;
+                px=px+100;
+                
+            },1000)
+            
+
+    </script>
+</body>

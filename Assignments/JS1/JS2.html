@@ -1,0 +1,19 @@
+<body style="background-color:yellow">
+
+<script>
+
+    const list=["red","green","pink","blue","black"];
+    let i=0;
+
+    setInterval(() => {
+        document.body.style.backgroundColor=list[i];    
+        i++;
+        if (i>4){
+            i=0;
+        }        
+        
+    }, 1000);
+    
+</script>
+
+</body>
