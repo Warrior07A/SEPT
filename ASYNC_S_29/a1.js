@@ -11,12 +11,15 @@
 const fs=require("fs");
 function readwritefile(filepath, op){
     fs.readFile(filepath,"utf-8",(err,data)=>{
-       if (err){
-        return(op(err,null));
-       }
+        op(err,data);
+    
+        //    if (err){
+    //     return(op(err,null));
+    //    }
        let d=data.toUpperCase();
         fs.writeFile(filepath,data.toUpperCase(),"utf-8",()=>{
-            return op(err,d)
+            // return op(err,d)
+            op(err,dataz``)
         })
     }
     )
