@@ -1,1 +1,0 @@
-vowels are : 38

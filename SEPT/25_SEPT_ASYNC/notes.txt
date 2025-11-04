@@ -1,6 +1,0 @@
-why does fs module doesnt exist in front end
-bz fs helps to access files of the system
-
-and if fs is bundles in the frontend then any developer can access the internal files of the client /user visiting that 
-website
-

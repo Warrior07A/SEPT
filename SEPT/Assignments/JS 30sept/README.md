@@ -1,1 +1,0 @@
-link= "https://feather-lion-ff2.notion.site/Dev-Lab-30-10-27e246afc9f2806b8a9ec768eace2a69"
