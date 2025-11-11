@@ -9,11 +9,6 @@ let todos = [];
 
 todos = JSON.parse(fs.readFileSync("data.json","utf-8") || '[]');
 
-// function change(data){
-//   console.log(data);
-//   console.log(JSON.stringify(data));
-// }
-
 app.get("/todos",function(req,res)
 {
   res.json(todos);
@@ -32,15 +27,16 @@ app.post("/todos", function(req, res) {
 app.put("/todos/:id",function(req,res)
 {
   const id = req.params.id;
-  const todo = todos.find(item =>item.id == id)
+  const todo = todos.find(item => item.id == id)
+  console.log(id, todo)
   if (todo)
   {
     todo.completed = true;
-    res.send("Todo has been completed");
     fs.writeFile("data.json",JSON.stringify(todos),function(err){});
-
+    res.send("Todo has been completed");
+    return
   }
-  else res.send("Erorr! todo not found");
+  res.send("Erorr! todo not found");
 })
 
 app.delete("/todos/:id",function(req,res)
