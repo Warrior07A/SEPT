@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO APP</title>
+</head>
+<body>
+    <h1> SIGNUP PAGE</h1>
+
+    <input type ="text" placeholder="text" id ="username">
+    <input type = "password" placeholder="password" id ="password">
+    <button id ="signup" > Signup</button>
+    <div id="party">
+
+    </div>
+    <script>
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const signupbtn =  document.getElementById("signup");
+        async function main(){
+            let cred = await fetch ("http://localhost:3000/signup",{
+                method:"POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+
+                body:JSON.stringify({
+                    "username":username,
+                    "password" : password
+                })
+            })
+            const json = await cred.json;
+            console.log(json);
+        }
+
+
+
+
+        signupbtn.addEventListener("click",()=>{
+            main();
+        })
+    </script>
+</body>
+</html>
