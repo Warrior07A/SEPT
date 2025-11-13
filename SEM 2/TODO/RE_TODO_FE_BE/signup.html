@@ -10,36 +10,41 @@
 
     <input type ="text" placeholder="text" id ="username">
     <input type = "password" placeholder="password" id ="password">
-    <button id ="signup" > Signup</button>
+    <button id ="signup"> Signup</button>
     <div id="party">
 
     </div>
     <script>
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
         const signupbtn =  document.getElementById("signup");
+        
         async function main(){
-            let cred = await fetch ("http://localhost:3000/signup",{
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const party = document.getElementById("party");
+            let cred = await fetch ("/signup",{
                 method:"POST",
                 headers: {
-                "Content-Type": "application/json",
+                    "Content-Type": "application/json",
                 },
-
                 body:JSON.stringify({
                     "username":username,
                     "password" : password
                 })
             })
-            const json = await cred.json;
-            console.log(json);
+            let response = await cred.json();
+            console.log(response);
+            const h1 = document.createElement("h1");
+            h1.innerHTML = response;
+            party.appendChild(h1);
+            await setTimeout(()=>{
+
+            },1000);
+            window.location.href = "/signin";
         }
-
-
-
-
+        
         signupbtn.addEventListener("click",()=>{
             main();
         })
     </script>
 </body>
-</html>
+</html> 
